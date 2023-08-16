@@ -19,7 +19,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 
-# =============== My configuration =================
+# ================== My configuration ==================
+
 # Mkdir and cd immidiately
 function mkcd {
   if [ ! -n "$1" ]; then
@@ -30,6 +31,9 @@ function mkcd {
     mkdir $1 && cd $1
   fi
 }
+
+# Newline after each output
+precmd() { print "" }
 
 DISABLE_AUTO_TITLE="true"
 
@@ -76,7 +80,7 @@ fi
 
 local return_code="%(?..%{$PR_RED%}%? ↵%{$PR_NO_COLOR%})"
 local user_host='${PR_CYAN}${PR_USER}${PR_CYAN}@${PR_CYAN}${PR_HOST}'
-local current_dir='%{$PR_MAGENTA%}%~%{$PR_NO_COLOR%}'
+local current_dir='%{$PR_MAGENTA%}%2~%{$PR_NO_COLOR%}'
 local rvm_ruby=''
 if which rvm-prompt &> /dev/null; then
   rvm_ruby='%{$PR_RED%}‹$(rvm-prompt i v g s)›%{$PR_NO_COLOR%}'
@@ -115,4 +119,3 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[yellow]%}"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
