@@ -18,9 +18,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-
 # ================== My configuration ==================
-
 # Mkdir and cd immidiately
 function mkcd {
   if [ ! -n "$1" ]; then
@@ -31,7 +29,6 @@ function mkcd {
     mkdir $1 && cd $1
   fi
 }
-
 # Newline after each output
 precmd() { print "" }
 
@@ -40,7 +37,6 @@ DISABLE_AUTO_TITLE="true"
 function set_terminal_title() {
   echo -en "\e]2;$@\a"
 }
-
 # My aliases
 alias p="~/simple_automations/automated_tasks/gitPush.sh"
 alias f="~/simple_automations/automated_tasks/createFile.sh"
