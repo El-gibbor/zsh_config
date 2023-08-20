@@ -43,6 +43,7 @@ alias f="~/simple_automations/automated_tasks/createFile.sh"
 alias sql="~/simple_automations/automated_tasks/sqlLogin.sh"
 alias py="python3"
 alias pep="pycodestyle"
+alias x="chmod u+x"
 
 # load some modules
 autoload -U colors zsh/terminfo # Used in the colour alias below
