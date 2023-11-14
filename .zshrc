@@ -1,6 +1,3 @@
-# coming from bash? change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -18,7 +15,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# ================== My configuration ==================
+
+# ============= My configuration ============
+
 # Mkdir and cd immidiately
 function mkcd {
   if [ ! -n "$1" ]; then
@@ -29,6 +28,7 @@ function mkcd {
     mkdir $1 && cd $1
   fi
 }
+
 # Newline after each output
 precmd() { print "" }
 
@@ -37,13 +37,19 @@ DISABLE_AUTO_TITLE="true"
 function set_terminal_title() {
   echo -en "\e]2;$@\a"
 }
-# My aliases
+
+# ============== My aliases ==================
+
 alias p="~/simple_automations/automated_tasks/gitPush.sh"
 alias f="~/simple_automations/automated_tasks/createFile.sh"
 alias sql="~/simple_automations/automated_tasks/sqlLogin.sh"
 alias py="python3"
 alias pep="pycodestyle"
 alias x="chmod u+x"
+alias python="python3"
+alias w3c="~/W3C-Validator/w3c_validator.py"
+alias sms="semistandard"
+alias smf="semistandard --fix"
 
 # load some modules
 autoload -U colors zsh/terminfo # Used in the colour alias below
@@ -69,7 +75,7 @@ elif [[ $UID -eq 0 ]]; then # root
 fi
 
 # Check if we are on SSH or not
-if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
   eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
 else
   eval PR_HOST='${PR_CYAN}%M${PR_NO_COLOR}' # no SSH
