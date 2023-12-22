@@ -3,8 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME=""
 
-# command auto-correction.
- ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"  # Auto-correct commands
 
 # can be customised e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: issues with multiline prompts in zsh < 5.7.1 (see #5765)
@@ -15,9 +14,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-
-# ============= My configuration ============
-
+# ========================== My config (El-gibbor) ========================
 # Mkdir and cd immidiately
 function mkcd {
   if [ ! -n "$1" ]; then
@@ -37,19 +34,20 @@ DISABLE_AUTO_TITLE="true"
 function set_terminal_title() {
   echo -en "\e]2;$@\a"
 }
-
-# ============== My aliases ==================
-
+# ========================== My aliases (El-gibbor) =========================
+alias py="python3"
+alias x="chmod u+x"
+alias sh="shellcheck"
+alias gs="git status"
+alias python="python3"
+alias pep="pycodestyle"
+alias sms="semistandard"
+alias smf="semistandard --fix"
+alias w3c="~/W3C-Validator/w3c_validator.py"
 alias p="~/simple_automations/automated_tasks/gitPush.sh"
 alias f="~/simple_automations/automated_tasks/createFile.sh"
 alias sql="~/simple_automations/automated_tasks/sqlLogin.sh"
-alias py="python3"
-alias pep="pycodestyle"
-alias x="chmod u+x"
-alias python="python3"
-alias w3c="~/W3C-Validator/w3c_validator.py"
-alias sms="semistandard"
-alias smf="semistandard --fix"
+alias cps="~/simple_automations/automated_tasks/cp_to_server.sh"
 
 # load some modules
 autoload -U colors zsh/terminfo # Used in the colour alias below
@@ -108,17 +106,11 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=") %{$PR_YELLOW%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[yellow]%}"
 
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# ====================== Airbnb clone Mysql server credentials =================
+export HBNB_ENV=dev
+export HBNB_MYSQL_USER=hbnb_dev
+export HBNB_MYSQL_PWD=hbnb_dev_pwd
+export HBNB_MYSQL_HOST=localhost
+export HBNB_MYSQL_DB=hbnb_dev_db
+export HBNB_TYPE_STORAGE=db
