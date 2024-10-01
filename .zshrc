@@ -15,6 +15,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # ========================== My config (El-gibbor) ========================
+
 # Mkdir and cd immidiately
 function mkcd {
   if [ ! -n "$1" ]; then
@@ -34,7 +35,9 @@ DISABLE_AUTO_TITLE="true"
 function set_terminal_title() {
   echo -en "\e]2;$@\a"
 }
+
 # ========================== My aliases (El-gibbor) =========================
+
 alias py="python3"
 alias x="chmod u+x"
 alias sh="shellcheck"
@@ -44,10 +47,11 @@ alias pep="pycodestyle"
 alias sms="semistandard"
 alias smf="semistandard --fix"
 alias w3c="~/W3C-Validator/w3c_validator.py"
-alias p="~/simple_automations/automated_tasks/gitPush.sh"
-alias f="~/simple_automations/automated_tasks/createFile.sh"
-alias sql="~/simple_automations/automated_tasks/sqlLogin.sh"
-alias cps="~/simple_automations/automated_tasks/cp_to_server.sh"
+alias p="~/simple_scripts/automated_tasks/gitPush.sh"
+alias f="~/simple_scripts/automated_tasks/createFile.sh"
+alias sql="~/simple_scripts/automated_tasks/sqlLogin.sh"
+alias cps="~/simple_scripts/automated_tasks/cp_to_server.sh"
+alias mkfile="~/simple_scripts/automated_tasks/mkfile.sh"
 
 # load some modules
 autoload -U colors zsh/terminfo # Used in the colour alias below
@@ -114,3 +118,7 @@ export HBNB_MYSQL_PWD=hbnb_dev_pwd
 export HBNB_MYSQL_HOST=localhost
 export HBNB_MYSQL_DB=hbnb_dev_db
 export HBNB_TYPE_STORAGE=db
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
